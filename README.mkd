@@ -1,2 +1,69 @@
-### My Advance finding lane
+# My Advance finding lane
+[image1]: ./examples/Undist.png "Undistorted"
+[image2]: ./examples/Calibrate.png "Chessboard"
+[image3]: ./examples/Warp.png "Warp Example"
+[image4]: ./examples/Filter.png "Binary Example"
+[image5]: ./examples/Curve_equation.png "Fit Visual"
+[image6]: ./examples/Findind_lane_pixel.png "Finding Lane"
+[image7]: ./examples/Video_example.gif "Output"
+####1. Calibrate and Undistort
+
+
+
+
+
+![alt text][image2]
+
+
+
+####2. Undistort
+![alt text][image1]
+####3. Warp
+
+
+
+```python
+src = np.float32(
+    [[(img_size[0] / 2) - 55, img_size[1] / 2 + 100],
+    [((img_size[0] / 6) - 10), img_size[1]],
+    [(img_size[0] * 5 / 6) + 60, img_size[1]],
+    [(img_size[0] / 2 + 55), img_size[1] / 2 + 100]])
+dst = np.float32(
+    [[(img_size[0] / 4), 0],
+    [(img_size[0] / 4), img_size[1]],
+    [(img_size[0] * 3 / 4), img_size[1]],
+    [(img_size[0] * 3 / 4), 0]])
+```
+
+This resulted in the following source and destination points:
+
+| Source        | Destination   | 
+|:-------------:|:-------------:| 
+| 585, 460      | 320, 0        | 
+| 203, 720      | 320, 720      |
+| 1127, 720     | 960, 720      |
+| 695, 460      | 960, 0        |
+
+![alt text][image3]
+
+####4. Gradient Sobel HLS
+![alt text][image4]
+####5. Finding lane pixel & curve mesure
+
+To calculate curve we need to apply this formule mathematique
+![alt text][image5]
+
+Example in python
+```python
+left_curverad = ((1 + (2*left_fit_cr[0]*y_eval*ym_per_pix + left_fit_cr[1])**2)**1.5) / np.absolute(2*left_fit_cr[0])
+right_curverad = ((1 + (2*right_fit_cr[0]*y_eval*xm_per_pix + right_fit_cr[1])**2)**1.5 / np.absolute(2*right_fit_cr[0]))
+    
+```
+
+![alt text][image6]
+
+####6. Display all information about the position car in the road
+
+
+![alt text][image7]
 
