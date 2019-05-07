@@ -131,6 +131,7 @@ Video is in the output_videos
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-1. My SSD, my f****** SSD was crashed (I lost 300GO and time)
-2. In the project the combined (gradian/sobel/hsl/hsv) method was difficult to undestand it now it ok :D
-3. Practice and pratice, again and again
+
+1. In the project the combined (gradian/sobel/hsl/hsv) methods and it was difficult to undestand them. Now it ok :D
+2. Find the good threshold is a challenge
+3. My fitting are not quite good ! Help
